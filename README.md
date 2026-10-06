@@ -3,7 +3,7 @@
 ## 1. Thông tin cá nhân & Dự án
 - **Họ và tên:** Nguyễn Văn Biển
 - **Mã học viên (MHV):** 2A202602416
-- **Nhóm:** DBH (Phạm Quốc Đạt - 2A202602384, Nguyễn Văn Biển - 2A202602416, Mai Tiến Huy - 2A202602914)
+- **Hình thức:** Bài cá nhân (Individual Submission)
 - **Dự án chọn làm:** **AI Notes** — Trợ lý ghi chú học tập thông minh gắn ngữ cảnh nguồn (Slide bài giảng / Audio transcript).
 - **Mục tiêu sản phẩm:** Giải quyết bài toán sinh viên không kịp ghi chép và sợ AI bị ảo giác (hallucination) bằng cách cung cấp bản nháp giải thích gắn chặt với số trang slide nguồn, hỗ trợ kiểm chứng và tích lũy tri thức đáng tin cậy.
 

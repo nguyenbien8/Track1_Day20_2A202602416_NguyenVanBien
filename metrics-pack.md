@@ -2,7 +2,7 @@
 **Học viên:** Nguyễn Văn Biển  
 **Mã học viên (MHV):** 2A202602416  
 **Dự án:** AI Notes — Trợ lý ghi chú học tập thông minh gắn ngữ cảnh nguồn (Slide / Bài giảng)  
-**Nhóm:** DBH (Đạt - Biển - Huy)  
+**Hình thức:** Bài nộp cá nhân (Individual Submission)  
 
 ---
 
