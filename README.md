@@ -1,35 +1,40 @@
 # Track1_Day20_2A202602416_NguyenVanBien
 
-## 1. Thông tin cá nhân & Dự án
+## 1. Thông tin học viên & Dự án
 - **Họ và tên:** Nguyễn Văn Biển
 - **Mã học viên (MHV):** 2A202602416
-- **Hình thức:** Bài cá nhân (Individual Submission)
+- **Hình thức:** Bài nộp cá nhân (Individual Submission)
 - **Dự án chọn làm:** **AI Notes** — Trợ lý ghi chú học tập thông minh gắn ngữ cảnh nguồn (Slide bài giảng / Audio transcript).
-- **Mục tiêu sản phẩm:** Giải quyết bài toán sinh viên không kịp ghi chép và sợ AI bị ảo giác (hallucination) bằng cách cung cấp bản nháp giải thích gắn chặt với số trang slide nguồn, hỗ trợ kiểm chứng và tích lũy tri thức đáng tin cậy.
+- **Core Job:** Khi gặp những khái niệm khó trong bài giảng diễn ra dồn dập, người học muốn nhanh chóng hiểu đúng và lưu lại giải thích chuẩn xác gắn liền với trang tài liệu gốc, để khi làm bài tập tuần và ôn thi có thể tự tin sử dụng mà không sợ hiểu sai hay mất công lùng sục lại slide.
 
 ---
 
-## 2. Link tệp Metrics Pack (Đã cấp quyền xem)
-Toàn bộ hệ thống Metrics Pack chuẩn chỉnh theo framework Day 20 được lưu trữ trong repository này:
-- 📄 **Tệp Metrics Pack chi tiết (Markdown đầy đủ 00–07):** [metrics-pack.md](metrics-pack.md)
-- 🖥️ **Tệp trình bày trực quan (Interactive Visual Dashboard & Slide View):** [metrics-pack.html](metrics-pack.html) *(Mở trực tiếp trên bất kỳ trình duyệt nào để xem giao diện trực quan cao cấp, sơ đồ loop và bảng kiểm 5 Gates)*
-- 📝 **Nhật ký tương tác AI:** [ai-support-log.md](ai-support-log.md)
+## 2. LINK tệp Metrics Pack (Đã cấp quyền xem)
+Toàn bộ Metrics Pack được hoàn thiện đầy đủ 7 mục (00–06 + Revision Log), vượt qua 5 Gates đánh giá:
+- 📄 **Tệp Metrics Pack (Bản Markdown đầy đủ 00–06):** 
+  - Xem trực tiếp trên Repo: [metrics-pack.md](metrics-pack.md)
+  - Link GitHub: [https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien/blob/main/metrics-pack.md](https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien/blob/main/metrics-pack.md)
+- 🖥️ **Tệp trình bày trực quan (Interactive Visual Presentation & Dashboard View):**
+  - Mở tệp cục bộ / trình duyệt: [metrics-pack.html](metrics-pack.html)
+  - Link GitHub Pages (đã host trực tuyến): [https://nguyenbien8.github.io/Track1_Day20_2A202602416_NguyenVanBien/metrics-pack.html](https://nguyenbien8.github.io/Track1_Day20_2A202602416_NguyenVanBien/metrics-pack.html)
+  - Link HTMLPreview online: [https://htmlpreview.github.io/?https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien/blob/main/metrics-pack.html](https://htmlpreview.github.io/?https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien/blob/main/metrics-pack.html)
+- 📝 **Nhật ký dùng AI (AI Support Log):** [ai-support-log.md](ai-support-log.md)
 
 ---
 
-## 3. Tóm tắt cấu trúc Metrics Pack (00 — 06)
-1. **00 — Phạm vi & Core Job:** Sinh viên năm 3 (Hoàng Minh) cần nắm chắc khái niệm khó và lưu tài liệu ôn thi có trích dẫn nguồn xác thực.
-2. **01 — Core Action Card:** `Kiểm chứng nguồn và bấm lưu ghi chú học tập` (`note_verified_and_saved`) — Đạt 5/5 tiêu chí tự kiểm (Gate 1 Passed).
-3. **02 — Action Nature Card & Cadence:** Hành vi diễn ra theo chu kỳ tuần của môn học (2–3 buổi/tuần). Kết luận Cadence: **Weekly** ở cấp độ cá nhân (Gate 2 Passed).
-4. **03 — Metric System:** 
-   - **Activation:** Hoàn tất `note_verified_and_saved` đầu tiên trong 48h sau upload tài liệu.
-   - **Engagement:** Active Study Days/Week (2–3 ngày) & Tỷ lệ xem nguồn $\ge 75\%$.
-   - **North Star Metric (NSM):** **Weekly Verified Notes Saved (WVNS)** = Unit of Value + Quality Threshold + Frequency.
-   - **3 Leading Indicators:** Source Click-through Rate, First-24h Conversion, Draft Customization Ratio.
-   - **3 Counter-metrics:** Unverified Quick-Save Rate, AI Citation Error Flag Rate, Inference Cost per Verified Note (Gate 3 Passed).
-5. **04 — Retention Definition (Đủ 6 thành phần):** Unit (User) · Cohort entry (`first_note_verified_and_saved`) · Return event (`note_verified_and_saved` / `note_referenced_for_review`) · Window (Weekly W1–W8) · Threshold ($\ge 1$ lần/tuần) · Segment (In-semester).
-6. **05 — Product Loop:** Progress & Compounding Knowledge Loop (2 chu kỳ logic), kèm Metric Hypothesis trỏ trực tiếp về W4 Retention (Gate 4A Passed).
-7. **06 — Tracking nhanh:** 6 Core Events chuẩn `object_action` (map 1-1 với metrics) + 2 Acceptance Criteria kỹ thuật chống bắn event non và chống trùng lặp (Gate 4B & 5 Passed).
+## 3. Tóm tắt cấu trúc chuỗi quyết định logic (00 — 06)
+- **00 — Phạm vi & Core Job:** Persona sinh viên (Hoàng Minh) với bài toán tiếp thu bài giảng nhanh và nỗi sợ AI hallucination.
+- **01 — Core Action Card:** `Kiểm chứng nguồn và bấm lưu ghi chú học tập` (`note_verified_and_saved`) — Đạt 5/5 tiêu chí tự kiểm (Gate 1 Passed).
+- **02 — Action Nature Card & Cadence:** Nhịp tự nhiên xuất phát từ lịch học tín chỉ đại học (2–3 buổi/tuần). Kết luận Cadence: **Weekly** ở cấp User cá nhân (Gate 2 Passed).
+- **03 — Metric System:** 
+  - *Activation:* Hoàn tất `note_verified_and_saved` đầu tiên trong 48h sau upload slide.
+  - *Engagement:* Active Study Days/Week (2–3 ngày) & Tỷ lệ xem nguồn $\ge 75\%$.
+  - *North Star Metric (NSM):* **Weekly Verified Notes Saved (WVNS)** = Unit of Value + Quality Threshold + Frequency.
+  - *3 Leading Indicators:* Source Click-Through Rate, First-24h Note Conversion, Draft Customization Ratio.
+  - *3 Counter-Metrics:* Unverified Quick-Save Rate, AI Citation Error Flag Rate, Inference Cost per Verified Note (Gate 3 Passed).
+- **04 — Retention Definition (Đủ 6 thành phần):** Unit (User) · Cohort entry (`first_note_verified_and_saved`) · Return event (`note_verified_and_saved` / `note_referenced_for_review`) · Window (Weekly W1–W8) · Threshold ($\ge 1$ lần/tuần) · Segment (In-semester).
+- **05 — Product Loop:** Progress & Compounding Knowledge Loop (2 chu kỳ logic: Tiếp thu/Lưu trữ $\rightarrow$ Làm bài tập/Tái kích hoạt); Metric Hypothesis trỏ trực tiếp về W4 Retention (Gate 4A Passed).
+- **06 — Tracking nhanh:** 6 Core Events dạng `object_action` (map 1-1 với metric) + 2 Acceptance Criteria kỹ thuật chống bắn event non và chống trùng lặp (Gate 4B & Gate 5 Passed).
 
 ---
 
