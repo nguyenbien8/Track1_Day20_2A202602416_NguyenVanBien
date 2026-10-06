@@ -1,257 +1,271 @@
 # Track1_Day20_2A202602416_NguyenVanBien
 
-## 1. Thông tin học viên & Dự án
-- **Họ và tên:** Nguyễn Văn Biển
-- **Mã học viên (MHV):** 2A202602416
-- **Hình thức:** Bài nộp cá nhân (Individual Submission)
-- **Dự án chọn làm:** **AI Notes** — Trợ lý ghi chú học tập thông minh gắn ngữ cảnh nguồn (Slide bài giảng / Audio transcript).
-- **Core Job:** Khi gặp những khái niệm khó trong bài giảng diễn ra dồn dập, người học muốn nhanh chóng hiểu đúng và lưu lại giải thích chuẩn xác gắn liền với trang tài liệu gốc, để khi làm bài tập tuần và ôn thi có thể tự tin sử dụng mà không sợ hiểu sai hay mất công lùng sục lại slide.
+## 1. Thông tin học viên & dự án
+
+| | |
+| :--- | :--- |
+| **Họ và tên** | Nguyễn Văn Biển |
+| **MHV** | 2A202602416 |
+| **Hình thức** | Bài cá nhân |
+| **Dự án chọn làm** | **AI Notes** — trợ lý ghi chú học tập gắn ngữ cảnh nguồn (slide bài giảng / transcript) |
+| **Use case phân tích sâu** | Sau buổi học, người học biến bản nháp giải thích của AI thành ghi chú đã đối chiếu nguồn để dùng khi làm bài tập tuần và ôn thi |
 
 ---
 
-## 2. LINK tệp Metrics Pack (Đã cấp quyền xem)
-- 🔗 **Link tệp Metrics Pack trực tuyến (Đã cấp quyền xem):** [https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien#tệp-metrics-pack-hoàn-chỉnh-00--06](https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien#tệp-metrics-pack-hoàn-chỉnh-00--06)
-- 📝 **Nhật ký AI Support Log:** [ai-support-log.md](ai-support-log.md)
+## 2. Link tệp Metrics Pack (đã cấp quyền xem)
 
-*(Toàn bộ nội dung tệp Metrics Pack chuẩn chỉnh theo framework Day 20 được trình bày chi tiết ngay tại Mục 4 bên dưới để thuận tiện chấm điểm trực tiếp trên GitHub).*
+- 🔗 **Metrics Pack (00 → 06):** [github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien#metrics-pack](https://github.com/nguyenbien8/Track1_Day20_2A202602416_NguyenVanBien#metrics-pack) — repo public, ai có link đều xem được.
+- 📝 **AI Support Log:** [ai-support-log.md](ai-support-log.md)
+
+> Metrics Pack được trình bày trực tiếp ở [Mục 4](#metrics-pack) của README này để người chấm đọc ngay trên GitHub, không cần mở tệp ngoài.
 
 ---
 
 ## 3. Điều tôi mang về áp dụng cho dự án thật
-1. **Tư duy "Nature trước, Nurture sau":**
-   - Trước đây tôi hay có thói quen sao chép các dashboard mẫu trên mạng, mặc định đo DAU/MAU và dùng Push Notification để "kéo user quay lại mỗi ngày". Bài lab Day 20 giúp tôi nhận ra: **Nurture chỉ có tác dụng khuếch đại nhịp tự nhiên (Nature), không thể bịa ra một nhịp không tồn tại**. Với AI Notes, sinh viên học theo tuần thì phải đo Weekly; ép Daily chỉ tạo ra số ảo và làm phiền người dùng bằng notification rác.
-2. **Phân biệt rạch ròi giữa Thao tác UI, Output của AI và Value của User:**
-   - Việc người dùng bấm mở app hay AI sinh ra 100 trang tóm tắt **hoàn toàn chưa chứng minh giá trị được tạo ra**. Core Action thật sự phải là khoảnh khắc người dùng thẩm thấu giá trị: họ kiểm chứng nguồn và lưu lại ghi chú an toàn. Đây là bài học sống còn khi phát triển các sản phẩm AI tạo sinh (GenAI Product).
-3. **Kỷ luật trong định nghĩa Retention & Tracking:**
-   - Không bao giờ nói câu mơ hồ "D7 Retention của app là 30%". Một định nghĩa retention chuẩn bắt buộc phải có đủ 6 thành tố (Unit, Cohort Entry, Return Event, Window, Threshold, Segment).
-   - Về mặt kỹ thuật, Data Tracking không phải là "thấy nút nào cũng track". Mọi event phải map 1-1 với một câu hỏi sản phẩm hoặc một metric cụ thể, và bắt buộc phải có Acceptance Criteria nghiêm ngặt để ngăn chặn việc bắn event khi user mới click chuột (chưa hoàn tất transaction từ server) hoặc bắn trùng do reload/autosave.
+
+1. **Nature trước, nurture sau.** Trước đây tôi hay mặc định đo DAU/MAU và dùng push notification để "kéo user quay lại mỗi ngày". Giờ tôi hiểu nurture chỉ khuếch đại nhịp có sẵn, không tạo ra được nhịp không tồn tại. Sinh viên học theo tuần thì AI Notes đo theo tuần. Nếu ép daily, tôi chỉ có số ảo và notification gây phiền.
+2. **Thao tác UI, output của AI và value của user là ba thứ khác nhau.** User mở app, hay AI sinh 100 trang tóm tắt, đều chưa chứng minh được value. Value chỉ xảy ra khi người học đối chiếu nguồn và giữ lại một ghi chú họ tin là đúng. Từ nay, với mọi tính năng GenAI trong dự án, tôi sẽ hỏi trước: "user đã *làm gì* với output này?"
+3. **Kỷ luật định nghĩa metric và tracking.** Tôi không nói "D7 retention 30%" nữa. Mỗi retention phải đủ 6 thành phần (unit, cohort entry, return event, window, threshold, segment). Mỗi event phải tính được ít nhất một metric, và ngược lại mỗi metric phải có event để tính. Event chỉ bắn khi server đã ghi nhận hành vi hoàn tất, và có khóa chống trùng khi reload/retry.
+4. **Không dùng số liệu không có nguồn.** Benchmark và baseline retention sẽ lấy từ chính cohort học kỳ đầu của sản phẩm, không mượn con số "tham khảo" trôi nổi.
 
 ---
 
-## 4. Tệp Metrics Pack hoàn chỉnh (00 — 06)
+<a id="metrics-pack"></a>
+
+## 4. Metrics Pack
+
+Chuỗi quyết định: **Core action (01) → Cadence (02) → Metric + Retention (03–04) → Loop + hypothesis (05) → Tracking (06)**. Mỗi mục dùng lại kết quả của mục trước.
 
 ---
 
-### 00 — Dự án, Persona, Core Job
+### 00 — Dự án, persona, core job
 
-#### 1. Dự án
-- **Tên dự án:** AI Notes (Personal Contextual Learning Assistant)
-- **Định vị sản phẩm:** Trợ lý ghi chú học tập thông minh dành cho sinh viên và người tự học, tự động đồng bộ tài liệu bài giảng (slide, audio/transcript), tạo bản nháp giải thích khái niệm kèm trích dẫn đối chiếu nguồn chính xác, giúp người học kiểm chứng, chỉnh sửa và tích lũy tri thức đáng tin cậy.
+| Mục | Nội dung |
+| :--- | :--- |
+| **Dự án** | **AI Notes:** sinh viên tải slide / transcript bài giảng lên; AI tạo bản nháp giải thích khái niệm kèm trích dẫn tới đúng trang slide hoặc đoạn transcript; người học đối chiếu, chỉnh sửa và lưu thành kho ghi chú theo môn. |
+| **Persona** | **Minh**, sinh viên năm 3 khối kỹ thuật. Học 4–5 môn/tuần, mỗi buổi 50–100 slide với nhiều thuật ngữ mới. Trên lớp không kịp vừa nghe vừa ghi; cuối tuần xem lại ảnh chụp slide thì không nhớ ngữ cảnh. Sợ AI "bịa" khiến mình học sai trước kỳ thi. |
+| **Core job** (lời người dùng) | *"Khi gặp khái niệm khó trong bài giảng dồn dập, tôi muốn hiểu đúng và giữ lại lời giải thích gắn với đúng trang tài liệu gốc, để khi làm bài tập tuần và ôn thi tôi dùng được ngay mà không sợ hiểu sai hay phải lục lại cả trăm trang slide."* |
 
-#### 2. Persona
-- **Tên đại diện:** Hoàng Minh (21 tuổi, sinh viên năm 3 chuyên ngành Kỹ thuật / CNTT / Kinh tế).
-- **Bối cảnh & Hành vi:**
-  - Mỗi tuần học 4–5 môn, mỗi môn 1–2 buổi kéo dài 2–3 tiếng với lượng slide lớn (50–100 slide/buổi), nhiều thuật ngữ học thuật mới được giảng viên lướt qua nhanh.
-  - Vừa nghe giảng vừa gõ phím thì không kịp hiểu; nếu chỉ chụp ảnh slide hay ghi từ khóa vội thì cuối tuần xem lại không hiểu bản chất, không nhớ ngữ cảnh thầy cô giảng gì.
-  - Rất sợ AI bị "ảo giác" (hallucination) tóm tắt bừa bãi khiến mình học sai kiến thức nền tảng để đi thi.
-
-#### 3. Core Job (Jobs-to-be-Done)
-- **Viết bằng lời người dùng:**
-  > *"Khi gặp những khái niệm khó trong bài giảng diễn ra dồn dập, tôi muốn nhanh chóng hiểu đúng và lưu lại được giải thích chuẩn xác gắn liền với trang tài liệu gốc, để khi làm bài tập tuần và ôn thi tôi có thể tự tin sử dụng mà không sợ hiểu sai hay mất công lùng sục lại cả trăm trang slide."*
-- **Tránh bẫy:** Không viết *"Cần một chatbot AI thông minh để tóm tắt bài giảng"* (đây là tính năng, không phải core job).
+> Tránh bẫy: không viết "cần một chatbot AI tóm tắt bài giảng", vì đó là tính năng, không phải core job.
 
 ---
 
-### 01 — Core Action Card (+ Kết quả tự kiểm 5 tiêu chí)
+### 01 — Core Action Card (+ tự kiểm 5 tiêu chí)
 
-#### 1. Phân biệt 4 khái niệm nền tảng
-| Khái niệm | Định nghĩa / Câu hỏi | Ứng dụng trong AI Notes |
+#### 1. Phân biệt 4 khái niệm
+
+| Khái niệm | Câu hỏi | AI Notes |
 | :--- | :--- | :--- |
-| **Core Job** | User đang cố hoàn thành việc gì? | Hiểu đúng và tích lũy ghi chú học tập chuẩn xác từ bài giảng để tự tin làm bài tập và ôn thi. |
-| **Core Action** | User làm gì trong sản phẩm để tiến tới giá trị? | **Kiểm chứng nguồn và bấm lưu ghi chú học tập có trích dẫn** (*Verify citation & save contextual note*). |
-| **Core Value** | User nhận được lợi ích cốt lõi gì? | Nắm chắc bản chất kiến thức, tiết kiệm 70% thời gian tra cứu lại, yên tâm không học sai nhờ nguồn gốc minh bạch. |
-| **Core Value Event** | Sự kiện nào chứng minh value đã xảy ra? | `note_verified_and_saved` (Ghi chú được lưu thành công kèm liên kết nguồn đã được đối chiếu). |
+| **Core job** | User đang cố hoàn thành việc gì? | Hiểu đúng khái niệm khó và có tài liệu đáng tin để làm bài tập tuần và ôn thi. |
+| **Core action** | User làm gì trong sản phẩm để tiến tới giá trị? | **Lưu một ghi chú đã đối chiếu nguồn** (*verified note*). |
+| **Core value** | User nhận được lợi ích gì? | Hiểu đúng bài ngay sau buổi học; có kho ghi chú tin cậy, bấm vào là thấy trang nguồn khi làm bài. |
+| **Core value event** | Sự kiện nào chứng minh value đã xảy ra? | `note_saved` với `is_verified = true`. Value tích lũy được xác nhận thêm bằng `note_reopened` khi làm bài / ôn thi. |
 
 #### 2. Core Action Card
-| Thành phần | Chi tiết lựa chọn |
+
+| Thành phần | Câu trả lời |
 | :--- | :--- |
-| **Target user** | Sinh viên / Người học (Learner) có nhu cầu tự học và hoàn thành môn học. |
-| **Core job** | Hiểu đúng khái niệm phức tạp và lưu lại tài liệu ôn tập có bằng chứng nguồn. |
-| **Core action** | **Kiểm chứng nguồn và bấm lưu ghi chú học tập gắn ngữ cảnh** (*Verify & Save Contextual Note*). |
-| **Object** | Thẻ ghi chú học tập (*Contextual Note*) chứa: nội dung giải thích + liên kết vị trí slide/transcript gốc. |
-| **Preconditions** | Tài liệu bài giảng đã được tải lên; AI đã sinh bản nháp giải thích kèm trích dẫn nguồn; Learner mở xem bản nháp. |
-| **Completion rule** | Learner click kiểm tra trích dẫn (xem nguồn) và bấm xác nhận **"Lưu ghi chú"** (nội dung không rỗng, liên kết nguồn hợp lệ). |
-| **Core value** | Có được kiến thức chuẩn xác, giải tỏa áp lực thi cử, có sẵn tài liệu đáng tin cậy để làm bài tập ngay. |
-| **Evidence of value** | Ghi chú tồn tại trong kho kiến thức cá nhân kèm metadata nguồn đã xác nhận; ghi chú được mở lại khi làm bài tập. |
-| **Candidate event** | `note_verified_and_saved` |
+| **Target user** | Learner cá nhân (sinh viên đang trong học kỳ). |
+| **Core job** | Hiểu đúng khái niệm khó và giữ lại lời giải thích có bằng chứng nguồn. |
+| **Core action** | **Lưu một ghi chú đã đối chiếu nguồn.** |
+| **Object** | *Contextual note* = nội dung giải thích (≥ 20 ký tự) + liên kết tới vị trí slide / transcript gốc (`source_anchor_id`). |
+| **Preconditions** | Tài liệu bài giảng đã tải lên; AI đã tạo bản nháp có trích dẫn; learner đang mở bản nháp đó. |
+| **Completion rule** | Server ghi nhận ghi chú chuyển từ **draft → saved** **và** thỏa cả 3 điều kiện: (1) `source_anchor_id` hợp lệ; (2) nội dung ≥ 20 ký tự; (3) learner đã mở panel nguồn của ghi chú đó tổng cộng ≥ 3 giây trước khi lưu. Thiếu (3) thì vẫn là lưu, nhưng **không** tính là core action (xem counter-metric UQSR). |
+| **Core value** | Hiểu đúng bài; có tài liệu tin cậy để dùng ngay khi làm bài tập. |
+| **Evidence of value** | Ghi chú có metadata nguồn đã đối chiếu nằm trong kho môn học **và** được mở lại khi làm bài tập / ôn thi. |
+| **Candidate event** | `note_saved` (`is_verified = true`) |
 
-#### 3. Kết quả tự kiểm 5 tiêu chí (Gate 1 Self-Audit)
-1. **Gần core value? (ĐẠT - 5/5):** Khi hành vi lưu ghi chú gắn nguồn hoàn tất, user đã thực sự biến thông tin trôi nổi thành tri thức cá nhân đã kiểm chứng. Khác biệt hoàn toàn với việc AI tự generate (output hệ thống) mà user chưa thèm đọc.
-2. **Có thể lặp lại? (ĐẠT - 5/5):** Mỗi khi có bài học mới, khái niệm khó mới hoặc bài tập tuần mới, hành vi này lại xuất hiện tự nhiên.
-3. **Có thể quan sát? (ĐẠT - 5/5):** Hệ thống bắt được chính xác thời điểm user click nút "Lưu ghi chú" sau khi đã qua bước kiểm tra nguồn (client-to-server transaction ghi nhận thành công).
-4. **Có ý nghĩa? (ĐẠT - 5/5):** Nếu số lượng ghi chú kiểm chứng tăng, chứng tỏ user thực sự dùng sản phẩm để học và tích lũy, chứ không phải vào ngó rồi bỏ đi.
-5. **Có thể tác động? (ĐẠT - 5/5):** Product team có thể cải thiện UX hiển thị nguồn song song, tối ưu tốc độ sinh nháp, làm nổi bật trích đoạn liên quan để tăng tỷ lệ hoàn tất action này.
+#### 3. Tự kiểm 5 tiêu chí
 
-> **Kết luận Gate 1:** Core action được định nghĩa chặt chẽ với Actor = Learner, Object = Contextual Note, Completion rule rõ ràng. Vượt qua 5/5 tiêu chí tự kiểm. Không bị nhầm lẫn với thao tác giao diện ("bấm nút", "mở app") hay output hệ thống ("AI sinh tóm tắt").
+| # | Tiêu chí | Kết quả | Lý do |
+| :-: | :--- | :-: | :--- |
+| 1 | Gần core value | ✅ Đạt | Khi action hoàn tất, learner đã đọc, đối chiếu nguồn và giữ lại lời giải thích mình tin là đúng. Đó chính là "hiểu đúng + có tài liệu tin cậy". Khác với "AI sinh tóm tắt" (output hệ thống) hay "hỏi AI" (thao tác UI), vốn chưa cho biết learner có hiểu hay giữ lại gì. |
+| 2 | Có thể lặp lại | ✅ Đạt | Mỗi buổi học mới hay mỗi bài tập tuần mới đều sinh ra khái niệm khó mới, nên action xuất hiện lại tự nhiên. |
+| 3 | Có thể quan sát | ✅ Đạt | Completion rule là chuyển trạng thái trên server với 3 điều kiện đo được (anchor, độ dài, thời gian mở nguồn). Không phụ thuộc vào cú click ở client. |
+| 4 | Có ý nghĩa | ✅ Đạt | Số verified note tăng nghĩa là learner thực sự dùng sản phẩm để học. Rủi ro "lưu bừa" được counter-metric UQSR và ACEFR canh. |
+| 5 | Có thể tác động | ✅ Đạt | Team cải thiện được: hiển thị nguồn song song, highlight đoạn trích liên quan, tăng tốc tạo bản nháp, giảm trích dẫn sai. |
+
+> **Gate 1:** Actor = learner, object = contextual note, completion rule rõ ràng; đạt 5/5 tiêu chí. Đây không phải "mở app" hay "hỏi AI", vì hai thao tác đó có thể xảy ra mà learner chưa hiểu hay giữ lại được gì.
 
 ---
 
-### 02 — Action Nature Card + Kết luận Cadence
+### 02 — Action Nature Card + kết luận cadence
 
 #### 1. Action Nature Card
-| Thành phần | Đặc tính bản chất của hành vi trong đời thực (Nature) |
+
+| Thành phần | Nature của hành vi |
 | :--- | :--- |
-| **Actor** | Sinh viên / Cá nhân người học (Individual Learner). |
-| **Intent** | Nhu cầu xuất phát từ áp lực tiếp thu bài học trên lớp và nghĩa vụ hoàn thành bài tập tuần / chuẩn bị thi cử. |
-| **Trigger** | **Ngoại cảnh tự nhiên:** Lịch học môn học theo thời khóa biểu (2–3 buổi/tuần) và lịch giao bài tập về nhà từ giảng viên. |
-| **Effort** | **Trung bình - Cao:** Cần đọc lướt giải thích, ngó lại slide gốc xem có đúng thầy cô dạy không, chỉnh sửa từ ngữ cá nhân (3–5 phút/ghi chú). |
-| **Value timing** | **Lai ghép (Immediate + Compounding):** Nhận giá trị tức thì (hiểu bài ngay) + Tích lũy lâu dài (kho tài liệu có sẵn để ôn thi cuối kỳ). |
-| **State** | Dữ liệu được bảo toàn vĩnh viễn trong Knowledge Base của môn học, đính kèm bookmark trang tài liệu. |
-| **Dependency** | Phụ thuộc vào việc giảng viên có cung cấp slide/tài liệu bài giảng và lịch học của nhà trường. |
-| **Repeat condition** | Xuất hiện bài giảng mới trong tuần hoặc đến hạn giải quyết bài tập tuần kế tiếp. |
+| **Actor** | Learner cá nhân. |
+| **Intent** | Hiểu bài vừa học trước khi quên ngữ cảnh; chuẩn bị cho bài tập tuần / kỳ thi. |
+| **Trigger** | **Sự kiện bên ngoài:** buổi học theo thời khóa biểu (2–3 buổi có nội dung mới/tuần) và hạn nộp bài tập từ giảng viên. Không phải do hệ thống kích hoạt. |
+| **Effort** | Trung bình: đọc bản nháp, mở slide gốc đối chiếu, sửa lại bằng lời mình. Khoảng vài phút cho mỗi ghi chú. |
+| **Value timing** | **Kết hợp:** tức thì (hiểu bài ngay) và tích lũy (kho ghi chú dùng cho bài tập và ôn thi cuối kỳ). |
+| **State** | Ghi chú lưu vĩnh viễn trong kho của môn học, kèm liên kết tới trang / đoạn nguồn. |
+| **Dependency** | Cần giảng viên cung cấp slide / tài liệu; phụ thuộc lịch học và lịch thi của trường; gần như không có nhu cầu trong kỳ nghỉ. |
+| **Repeat condition** | Có buổi học mới với khái niệm mới, hoặc đến hạn bài tập tuần / mùa ôn thi. |
 
-#### 2. Phân loại dạng hành vi
-- **Dạng hành vi:** **Tiến trình tích lũy theo chu kỳ học tập tuần** (*Progressive Compounding via Weekly Academic Cycle*).
-- Không phải "Thói quen hàng ngày" (Daily Habit) vì đại học không học 7 ngày/tuần với cùng một môn. Cũng không phải "Giao dịch một lần" (One-off transaction).
+#### 2. Dạng hành vi
 
-#### 3. Kết luận Cadence (Template chuẩn)
-> **Đối với sinh viên và người học theo học kỳ**, core action **kiểm chứng và lưu ghi chú học tập gắn nguồn** thường xuất hiện **2 đến 3 ngày mỗi tuần (Weekly Active Study Days)** vì **lịch học tín chỉ và bài tập trên lớp diễn ra theo chu kỳ tuần (mỗi tuần có 2–3 buổi học có kiến thức mới)**. Do đó, nhịp đo phù hợp là **Weekly (Weekly Cadence)** ở cấp độ **Cá nhân người học (User-level)**.
+**Theo chu kỳ (cyclical), tích lũy tiến trình qua từng tuần.** Nhu cầu bị kéo bởi lịch học tuần. Đây không phải thói quen hằng ngày: không môn nào học 7 ngày/tuần. Cũng không phải giao dịch một lần, vì kho ghi chú lớn dần qua cả học kỳ.
 
-> **Kết luận Gate 2:** Cadence được xác lập dựa trên bản chất tự nhiên (Nature) của lịch học đại học. Kiên quyết bác bỏ việc ép chỉ số Daily (DAU) một cách vô căn cứ.
+#### 3. Kết luận cadence
 
----
+> **Đối với** sinh viên đang trong học kỳ, **core action** lưu ghi chú đã đối chiếu nguồn **thường xuất hiện** 2–3 ngày mỗi tuần, ngay sau các buổi học có nội dung mới và trước hạn bài tập tuần, **vì** lịch học tín chỉ và bài tập vận hành theo chu kỳ tuần. **Do đó, nhịp đo phù hợp là** hằng tuần (weekly) **ở cấp** cá nhân người học (user-level).
 
-### 03 — Metric System (Activation / Engagement / NSM / Leading / Counter)
-
-#### 1. Activation Metric
-- **Start Event:** `lecture_material_uploaded` (Lần đầu tiên user tải lên slide hoặc tài liệu bài giảng vào hệ thống).
-- **Activation Event:** `note_verified_and_saved` (Lần đầu tiên user hoàn tất việc đối chiếu nguồn và bấm lưu ít nhất 1 ghi chú gắn nguồn).
-- **Time Window:** Trong vòng **48 giờ** kể từ khi tải tài liệu lên.
-- **Công thức Activation Rate:**
-  $$\text{Activation Rate} = \frac{\text{Số user hoàn tất `note_verified_and_saved` trong 48h sau upload}}{\text{Tổng số user có `lecture_material_uploaded` trong cùng cohort}} \times 100\%$$
-- *Tránh bẫy:* Không tính hoàn thành onboarding tutorial hay đăng ký tài khoản là activation.
-
-#### 2. Engagement Metric
-Chọn 2 góc đo sâu sát:
-1. **Frequency:** **Active Study Days per Week (ASDw)** — Số ngày trong tuần mà user thực hiện ít nhất một lượt `note_verified_and_saved` (Target benchmark: 2–3 ngày/tuần).
-2. **Depth:** **Source Verification Depth Ratio (SVDR)** — Tỷ lệ ghi chú được lưu có thời gian xem nguồn đối chiếu $\ge 3$ giây:
-   $$\text{SVDR} = \frac{\text{Số ghi chú lưu có thời gian mở nguồn } \ge 3s}{\text{Tổng số ghi chú được lưu}} \times 100\% \quad (\text{Mục tiêu: } \ge 75\%)$$
-
-#### 3. North Star Metric (NSM)
-- **Công thức chuẩn:** `Unit of Value` + `Quality Threshold` + `Frequency`
-- **Tên NSM:** **Weekly Verified Notes Saved (WVNS)** — *Số lượng ghi chú học tập đã kiểm chứng nguồn được lưu trữ hàng tuần*.
-- **Bóc tách 3 thành tố:**
-  - `Unit of value`: Ghi chú học tập có gắn ngữ cảnh (*Contextual Study Note*).
-  - `Quality threshold`: Đã qua bước đối chiếu nguồn (*Source-verified* với thời gian mở slide $\ge 3s$, nội dung ghi chú không rỗng $\ge 20$ ký tự).
-  - `Frequency`: Hàng tuần (*Weekly* — khớp chính xác với kết luận Cadence ở Phase 2).
-- **Ý nghĩa:** Chỉ số này đo lường trực tiếp lượng tri thức thật sự có chất lượng mà người học đã tiếp thu và lưu giữ an toàn. Không thể bị gian lận bằng việc spam bấm tạo hàng loạt.
-
-#### 4. Leading Indicators (Tối đa 3 chỉ số dự báo)
-1. **Source Click-through Rate (SCTR):**
-   - *Định nghĩa:* Tỷ lệ người học click vào link trích dẫn nguồn trên tổng số bản nháp do AI tạo ra.
-   - *Lý do dự báo:* Nếu user chủ động bấm xem nguồn, chứng tỏ họ có sự tò mò và nhu cầu kiểm chứng cao, dự báo xác suất bấm lưu ghi chú tăng gấp 3.2 lần.
-2. **First-24h Note Conversion Rate (F24NCR):**
-   - *Định nghĩa:* Tỷ lệ tài liệu được tạo ghi chú trong vòng 24 giờ sau khi tải lên.
-   - *Lý do dự báo:* Thói quen xử lý bài vở ngay trong ngày là dấu hiệu của người học có kỷ luật; nhóm này có tỷ lệ duy trì học tập các tuần sau cao hơn 80% so với nhóm tải lên rồi để đó.
-3. **Draft Customization Ratio (DCR):**
-   - *Định nghĩa:* Tỷ lệ ghi chú có hành vi sửa đổi chữ, thêm highlight hoặc ghi chú riêng của user trước khi bấm lưu.
-   - *Lý do dự báo:* Đo lường mức độ cá nhân hóa tri thức (investment). User càng đầu tư suy nghĩ vào ghi chú, giá trị tích lũy càng lớn, cam kết quay lại càng bền vững.
-
-#### 5. Counter-metrics (Phát hiện "số ảo, hại thật")
-1. **Unverified Quick-Save Rate (UQSR) — Nguy cơ suy giảm chất lượng:**
-   - *Định nghĩa:* Tỷ lệ ghi chú được lưu trong khi thời gian xem nguồn = 0 giây.
-   - *Cảnh báo:* Nếu NSM tăng vọt nhưng UQSR cũng tăng cao, tức là sinh viên đang lười biếng bấm "Lưu tất cả" mà không đọc, biến ứng dụng thành kho rác tài liệu và dễ bị sai kiến thức do AI ảo giác.
-2. **AI Citation Error Flag Rate (ACEFR) — Đo lường chất lượng kỹ thuật:**
-   - *Định nghĩa:* Tỷ lệ ghi chú bị user báo cáo "Trích dẫn sai trang / tóm tắt sai ý". Ngưỡng trần cho phép: $< 2\%$.
-3. **Inference Cost per Verified Note (ICPVN) — Đo lường kinh tế đơn vị:**
-   - *Định nghĩa:* Tổng chi phí token LLM chia cho số ghi chú kiểm chứng thành công. Đảm bảo mô hình kinh doanh bền vững khi scale.
-
-> **Kết luận Gate 3:** Bộ metric hoàn chỉnh, có ranh giới rõ ràng giữa Active và Activated. NSM đúng công thức 3 vế. Có counter-metrics bảo vệ trải nghiệm học thuật và chi phí AI.
+> **Gate 2:** Cadence lấy từ lịch học thật, không từ dashboard. Daily active hay số lần dùng nhiều hơn không đồng nghĩa với value cao hơn: learner xử lý xong bài trong một phiên ngắn mỗi tuần là tín hiệu tốt.
 
 ---
 
-### 04 — Retention Definition (Đủ 6 thành phần)
+### 03 — Metric System
 
-| Thành phần | Đặc tả kỹ thuật cho AI Notes | Giải thích logic |
+#### 1. Activation
+
+| Thành phần | Định nghĩa |
+| :--- | :--- |
+| **Start event** | `material_uploaded` đầu tiên của user. |
+| **Activation event** | `note_saved` đầu tiên với `is_verified = true` (core action đầu tiên). |
+| **Time window** | ≤ 48 giờ kể từ start event. Lý do: với 2–3 buổi/tuần, 48 giờ là khoảng cách tới buổi học kế tiếp. Quá mốc này thì ngữ cảnh bài cũ đã nguội. |
+| **Công thức** | Activation rate = số user có verified note đầu tiên trong ≤ 48h sau upload đầu tiên ÷ số user có upload đầu tiên (theo cohort tuần upload). |
+
+> Không dùng "đăng ký", "đăng nhập" hay "xem hết onboarding" làm activation, vì lúc đó user chưa chạm core value.
+
+#### 2. Engagement (2 góc)
+
+1. **Frequency — Active Study Days per Week (ASDw):** số ngày trong tuần learner có ≥ 1 verified note. Kỳ vọng khớp nature là 2–3 ngày/tuần trong học kỳ. Đây là mục tiêu nội bộ, không phải benchmark ngoài.
+2. **Depth — Source Verification Depth Ratio (SVDR):** tỉ lệ ghi chú được lưu có `source_view_ms ≥ 3000` trên tổng `note_saved`. Ngưỡng 3 giây trùng với điều kiện (3) trong completion rule.
+
+#### 3. North Star Metric
+
+**Weekly Verified Notes Saved (WVNS):** số ghi chú đã đối chiếu nguồn được lưu mỗi tuần.
+
+| Thành phần công thức | Giá trị |
+| :--- | :--- |
+| **Unit of value** | Contextual note (ghi chú gắn nguồn). |
+| **Quality threshold** | `is_verified = true`: có `source_anchor_id` hợp lệ, nội dung ≥ 20 ký tự, panel nguồn mở ≥ 3 giây trước khi lưu. Mỗi note chỉ đếm **một lần** (lần draft → saved đầu tiên). |
+| **Frequency** | Hằng tuần, khớp kết luận cadence ở mục 02. |
+
+> WVNS đo lượng tri thức đã được learner kiểm chứng, không phải lượng nội dung AI sinh ra. Spam "lưu tất cả" không làm WVNS tăng, vì note không mở nguồn sẽ có `is_verified = false`. Phần còn có thể bị game (mở nguồn cho đủ 3 giây rồi lưu) được counter-metric canh.
+
+#### 4. Leading indicators (3)
+
+| Chỉ số | Định nghĩa | Vì sao tin nó dự báo core action lặp lại |
 | :--- | :--- | :--- |
-| **1. Unit** | **Individual User (User ID)** | Phù hợp với sản phẩm phục vụ người học cá nhân. |
-| **2. Cohort entry** | Hoàn tất Core Action đầu tiên: `first_note_verified_and_saved` | Chỉ đưa người đã thực sự Activated vào cohort để đo retention có ý nghĩa (tránh pha loãng bởi user vãng lai chỉ vào xem trang chủ). |
-| **3. Return event** | Thực hiện ít nhất 1 lần `note_verified_and_saved` HOẶC `note_referenced_for_review` | Phản ánh cả 2 mặt giá trị: (1) Tiếp tục nạp và lưu kiến thức mới, hoặc (2) Mở lại ghi chú cũ để làm bài tập/ôn thi. |
-| **4. Window** | **Weekly Brackets (W1, W2, W3, ..., W8)** | Khớp 100% với Cadence tự nhiên của kỳ học (1 kỳ học kéo dài 8–15 tuần). Không dùng D7/D30 vì lệch nhịp học. |
-| **5. Threshold** | $\ge 1$ lần hoàn tất return event trong window tuần | Chỉ cần 1 session học tập chất lượng mỗi tuần là đạt chuẩn duy trì việc học của sinh viên. |
-| **6. Segment** | Phân theo loại kỳ học: Sinh viên đang trong học kỳ (In-semester) vs Kỳ nghỉ hè/nghỉ lễ | Giúp loại trừ yếu tố sụt giảm tự nhiên do nghỉ lễ/nghỉ tết, phản ánh đúng sức khỏe sản phẩm. |
+| **Source click-through rate (SCTR)** | Số bản nháp có ≥ 1 `source_citation_viewed` ÷ số `ai_draft_generated` | Mở nguồn là bước bắt buộc trước một verified note. Learner có thói quen kiểm chứng thì nhiều khả năng sẽ hoàn tất action ở các tuần sau. *Giả thuyết, sẽ kiểm chứng bằng tương quan với W4 retention.* |
+| **First-24h note rate (F24NR)** | Tỉ lệ tài liệu có ≥ 1 verified note trong 24h sau `material_uploaded` | Xử lý bài ngay trong ngày cho thấy sản phẩm đã gắn vào nhịp sau buổi học, tức đúng natural trigger. *Giả thuyết, cần đo.* |
+| **Draft customization ratio (DCR)** | Tỉ lệ note có ≥ 1 `note_edited` trước khi `note_saved` | Sửa bằng lời mình là investment. Kho ghi chú càng "của mình" thì lý do quay lại dùng nó càng mạnh. *Giả thuyết, cần đo.* |
 
-#### So sánh Retention với 3 mốc chuẩn (Triangulation)
-- **Natural Cycle:** Nhịp 1 tuần/lần khớp hoàn toàn với lịch học tín chỉ.
-- **Cohort Segment:** Theo dõi riêng nhóm sinh viên các môn kỹ thuật (nhiều thuật ngữ phức tạp) so với nhóm tự học ngoại ngữ.
-- **Category Benchmark:** So sánh với benchmark ngành EdTech / Productivity công cụ ghi chú học tập (W4 retention kỳ vọng đạt 30–35%, W8 đạt 25%).
+#### 5. Counter-metrics
+
+| Counter-metric | Định nghĩa | Bảo vệ điều gì |
+| :--- | :--- | :--- |
+| **Unverified quick-save rate (UQSR)** | Số `note_saved` có `source_view_ms = 0` ÷ tổng `note_saved` | Nếu WVNS tăng mà UQSR cũng tăng, learner đang lưu mà không đọc. Kho ghi chú thành kho rác, nguy cơ học sai do AI bịa. |
+| **Citation error report rate (CERR)** | Số note có `citation_error_reported` ÷ số verified note, theo tuần | Chất lượng trích dẫn của AI. Ngưỡng cảnh báo do team đặt nội bộ; baseline lấy từ học kỳ đầu. |
+| **Inference cost per verified note (ICPVN)** | Tổng `llm_cost_usd` của `ai_draft_generated` ÷ số verified note | Tăng note mà chi phí LLM mỗi note tăng theo thì mô hình không bền khi scale. |
+
+> **Gate 3:** Activation có start event, activation event và window. Retention đủ 6 thành phần (mục 04). NSM đủ 3 vế. Có 3 counter-metric.
 
 ---
 
-### 05 — Product Loop (2 chu kỳ + Metric Hypothesis)
+### 04 — Retention Definition (6 thành phần)
 
-#### 1. Phân loại Loop
-- **Loại Loop:** **Progress & Compounding Knowledge Loop** (Vòng lặp tiến trình & tích lũy tri thức kết hợp Workflow học tập).
-- **Nguyên lý:** Mỗi ghi chú được lưu có nguồn hôm nay sẽ biến thành công cụ giải quyết bài tập tuần tới; việc làm bài tập thành công tạo động lực và nhu cầu mở bài học tiếp theo.
+| Thành phần | Định nghĩa | Lý do |
+| :--- | :--- | :--- |
+| **Unit** | User (`user_id`) | Sản phẩm phục vụ learner cá nhân. |
+| **Cohort entry** | Tuần (ISO, giờ Việt Nam) của **verified note đầu tiên**, tức activation | Chỉ đo người đã chạm core value; tránh pha loãng bởi user chỉ đăng ký rồi bỏ. |
+| **Return event** | ≥ 1 `note_saved` (`is_verified = true`) **hoặc** ≥ 1 `note_reopened` | Hai mặt của value: nạp thêm kiến thức mới, hoặc dùng lại ghi chú cũ khi làm bài / ôn thi. Mở lại ghi chú cũ cũng là value, đúng tinh thần tích lũy. |
+| **Window** | **Tuần lịch W1…W8** sau tuần cohort (W0) | Khớp cadence weekly ở mục 02. Không dùng D7/D30 vì cửa sổ ngày không khớp lịch học tuần. |
+| **Threshold** | ≥ 1 return event trong tuần | Nhu cầu tự nhiên là theo tuần; một phiên học thật mỗi tuần là đủ để coi learner còn ở lại. |
+| **Segment** | Learner **đang trong học kỳ**, tách riêng các tuần nghỉ lễ / nghỉ hè; theo dõi thêm theo khối môn (kỹ thuật vs xã hội) | Tuần nghỉ không có trigger tự nhiên. Gộp chung vào sẽ khiến retention "rơi" giả. |
 
-#### 2. Mô hình 2 chu kỳ (Diagram & Diễn giải)
+**Đọc retention so với 3 mốc (không so với con số cứng):**
+- **Natural cycle:** đường retention nên đi ngang theo tuần học và nhô lên trước mùa thi, không phải giảm đều như app tiêu dùng hằng ngày.
+- **Cohort đúng segment:** so cohort in-semester với cohort in-semester. So khối kỹ thuật với chính khối kỹ thuật ở học kỳ trước.
+- **Category benchmark:** hiện **chưa có nguồn công khai đáng tin** cho công cụ ghi chú học tập có AI. Tôi không dùng con số tham khảo không nguồn; baseline sẽ lấy từ cohort học kỳ đầu.
+
+---
+
+### 05 — Product Loop (2 chu kỳ + metric hypothesis)
+
+**Loại loop:** **progress loop.** Ghi chú lưu hôm nay trở thành công cụ làm bài tập tuần sau; kho càng lớn thì lý do quay lại càng mạnh.
 
 ```mermaid
-graph TD
-    subgraph Cycle 1: Tiếp thu & Lưu trữ bài học
-        T1["(1) Natural Trigger: Kết thúc buổi học mới trên lớp, nhiều slide khó"]
-        A1["(2) Core Action: Mở slide, AI gợi ý giải thích, đối chiếu nguồn & lưu ghi chú"]
-        V1["(3) Immediate Value: Hiểu bài ngay, giải tỏa áp lực mơ hồ"]
-        S1["(4) Investment/State: Thẻ ghi chú gắn nguồn lưu vào Kho môn học"]
+flowchart TD
+    subgraph C1["Chu kỳ 1 — Tiếp thu bài mới"]
+        T1["① Natural trigger:<br/>vừa xong buổi học, nhiều khái niệm khó"]
+        A1["② Core action:<br/>đối chiếu nguồn và lưu ghi chú"]
+        V1["③ Immediate value:<br/>hiểu đúng bài ngay"]
+        S1["④ Saved state:<br/>ghi chú gắn nguồn vào kho môn học"]
     end
-
-    subgraph Cycle 2: Vận dụng & Tái kích hoạt
-        T2["(5) Next Natural Trigger: Đến hạn nộp bài tập tuần / Ôn tập bài cũ"]
-        A2["(6) Next Core Action: Mở kho ghi chú tra cứu nguồn làm bài, lưu thêm ghi chú mới"]
-        V2["(7) Compounding Value: Làm bài tập điểm cao, tiết kiệm 70% thời gian ôn thi"]
+    subgraph C2["Chu kỳ 2 — Vận dụng và học tiếp"]
+        T2["⑤ Next natural trigger:<br/>hạn bài tập tuần / buổi học kế tiếp"]
+        A2["⑥ Core action tiếp theo:<br/>mở lại ghi chú cũ làm bài + lưu ghi chú bài mới"]
+        V2["⑦ Repeat value:<br/>làm bài nhanh và chắc hơn, kho dày thêm"]
     end
-
     T1 --> A1 --> V1 --> S1 --> T2 --> A2 --> V2
-    V2 -.->|"Tạo thói quen học tập vững chắc"| T1
+    V2 -. "kho lớn hơn → giá trị lần sau lớn hơn" .-> T2
 ```
 
-- **Lý do quay lại (Reason to Return) KHÔNG CẦN NOTIFICATION:**
-  - Sinh viên quay lại vì **bài tập về nhà có hạn nộp thực tế** và **kho ghi chú trước đó đã có sẵn câu trả lời cùng số trang slide minh chứng**. Họ không cần push notification spam mà tự giác mở app vì app nắm giữ "tài sản kiến thức" của họ.
+*Dạng chữ:* buổi học xong → đối chiếu & lưu ghi chú → hiểu bài → ghi chú vào kho → hạn bài tập / buổi học mới → mở lại ghi chú + lưu ghi chú mới → làm bài chắc hơn, kho dày thêm → lặp lại.
 
-#### 3. Metric Hypothesis (Bắt buộc)
-> **Nếu** vòng lặp tri thức tích lũy (Progress & Compounding Knowledge Loop) hoạt động hiệu quả, **thì metric** `Weekly Note Retention tại Tuần 4 (W4 Retention)` **sẽ thay đổi theo hướng** **tăng từ 22% lên 38%** **trong vòng** **một học kỳ 8 tuần**, **vì** người học đã tích lũy được tối thiểu 5 thẻ ghi chú có nguồn ở Tuần 1–2 sẽ trải nghiệm việc giải quyết bài tập tuần dễ dàng hơn rõ rệt ở Tuần 3–4, tạo ra động lực nội tại (internal motivation) để chủ động quay lại học các chương kế tiếp mà không cần dựa dẫm vào notification nhắc nhở.
+**Reason to return nếu bỏ notification:** bài tập có hạn nộp thật và buổi học mới diễn ra theo thời khóa biểu (trigger tự nhiên). Kho ghi chú đã có sẵn lời giải thích kèm đúng trang slide (saved state). Notification nếu có chỉ nhắc đúng lúc trigger tự nhiên xảy ra, ví dụ "tối nay có buổi học, mở tài liệu mới?"; nó không tạo ra lý do quay lại.
 
-> **Kết luận Gate 4A:** Vòng lặp thể hiện rõ 2 chu kỳ, chuyển tiếp logic từ giá trị tức thì sang giá trị tích lũy, có câu giả thuyết định lượng trỏ thẳng về W4 Retention ở Phase 3.
+**Metric hypothesis:**
+
+> **Nếu** progress loop hoạt động đúng kỳ vọng, **metric** W4 retention (định nghĩa ở mục 04) của nhóm người học tích lũy ≥ 5 verified note trong 2 tuần đầu (W0–W1) **sẽ thay đổi theo hướng** duy trì cao hơn rõ rệt so với nhóm có < 5 note, **trong** học kỳ đầu tiên (theo dõi xuyên suốt 8 tuần sau launch), **vì** khi bước vào đợt deadline bài tập tuần ở W3–W4, người học đã có sẵn kho ghi chú chuẩn nguồn sẽ nhận thấy rõ giá trị tra cứu lại (`note_reopened`), từ đó có động lực tự thân tiếp tục xử lý các bài giảng mới mà không cần dựa dẫm vào push notification nhắc nhở.
+
+*Cơ sở bảo vệ quyết định lõi (dành cho phản biện):*
+- **Tại sao chọn mốc ≥ 5 verified note:** Trong 2 tuần đầu (W0–W1), sinh viên học khoảng 4–5 môn. Mốc 5 note đại diện cho việc người học đã kích hoạt core action thành công trên phần lớn các môn học, chứng minh sản phẩm đã bước đầu đi vào thói quen học tập thật.
+- **Tại sao so sánh 2 nhóm thay vì đưa % cứng:** Sản phẩm mới chưa có historical baseline. Đưa ra con số % cụ thể (như 22% hay 38%) là bịa đặt không có nguồn. Việc so sánh đối chứng giữa nhóm đã tích lũy đủ kho tài liệu và nhóm chưa tích lũy là phương pháp khoa học nhất để chứng minh giá trị của progress loop.
+
+> **Gate 4 (loop):** 2 chu kỳ, nối từ saved state sang next trigger. Hypothesis trỏ về W4 retention (mục 04), và về WVNS (mục 03) qua ngưỡng ≥ 5 verified note. Không dùng con số bịa đặt; có cơ sở bảo vệ vững chắc.
 
 ---
 
-### 06 — Tracking nhanh (Core Events + Acceptance Criteria)
+### 06 — Tracking nhanh (7 events + 2 acceptance criteria)
 
-#### 1. Bảng danh sách 6 Core Events (Chuẩn `object_action`)
+Mọi event bắn **từ server** sau khi trạng thái đã ghi vào DB, kèm `event_id` duy nhất, `user_id`, `timestamp` (UTC, quy đổi giờ Việt Nam khi chia tuần).
 
-| Tên Event | Ý nghĩa (Điều đã xảy ra) | Thời điểm ghi nhận chính xác | Metric sử dụng ở Phase 3 |
+| Event | Ý nghĩa (điều đã xảy ra) | Thời điểm ghi nhận | Metric sử dụng |
 | :--- | :--- | :--- | :--- |
-| `lecture_material_uploaded` | Tệp tài liệu slide/PDF buổi học đã tải lên server thành công. | Khi backend hoàn tất upload và lưu file vào S3 (HTTP 201). | Start Event của Activation Metric. |
-| `ai_draft_generated` | AI đã phân tích tài liệu và tạo xong bản nháp giải thích kèm trích dẫn. | Khi luồng xử lý AI model trả kết quả về client và render thành công. | Hệ số cơ sở để tính tỷ lệ xem nguồn (SCTR). |
-| `source_citation_viewed` | Người học chủ động click mở xem slide/trích đoạn nguồn tham chiếu. | Khi modal/panel xem tài liệu gốc mở ra và giữ active $\ge 1$ giây. | Leading Indicator (Source CTR) & Depth (SVDR). |
-| `note_edited` | Người học chỉnh sửa, thêm chú thích cá nhân vào nội dung bản nháp. | Khi người học gõ thêm ký tự và blur khỏi ô nhập liệu (thay đổi $\ge 5$ ký tự). | Leading Indicator (Draft Customization Ratio). |
-| `note_verified_and_saved` | Người học xác nhận lưu ghi chú học tập có nguồn vào kho tri thức. | **Chỉ khi API `/api/notes/save` trả về HTTP 200** sau khi ghi DB thành công. | **Core Action, NSM (WVNS), Activation Event, Retention Event.** |
-| `note_referenced_for_review`| Người học mở lại ghi chú cũ để đọc hoặc copy làm bài tập. | Khi chi tiết ghi chú được mở trong trang môn học hoặc click link nguồn từ ghi chú. | Engagement Depth & Retention Return Event. |
+| `material_uploaded` | Tài liệu bài giảng đã lưu thành công | Khi file lưu xong vào storage và bản ghi tài liệu được tạo (API trả `201`) | Activation (start event), F24NR |
+| `ai_draft_generated` | AI đã tạo xong bản nháp có trích dẫn | Khi job sinh nháp hoàn tất và bản nháp được ghi DB; kèm `llm_cost_usd` | SCTR (mẫu số), ICPVN |
+| `source_citation_viewed` | Learner đã xem nguồn của một bản nháp | Khi panel nguồn **đóng** (hoặc khi lưu note), nếu thời gian mở ≥ 1s; kèm `draft_id`, `view_ms` | SCTR, cộng dồn `source_view_ms` |
+| `note_edited` | Learner đã sửa nội dung bản nháp | Khi bản nháp đã sửa được lưu ở server với thay đổi ≥ 5 ký tự so với bản AI; mỗi `draft_id` ghi tối đa 1 lần | DCR |
+| `note_saved` | Ghi chú chuyển từ draft → saved | Khi `POST /api/v1/notes` commit DB xong (`201`). Properties: `note_id`, `source_anchor_id`, `content_length`, `source_view_ms`, `is_verified` (server tính theo completion rule) | **Core action, activation, NSM (WVNS), ASDw, SVDR, UQSR, retention (cohort entry + return)** |
+| `note_reopened` | Learner mở lại một ghi chú đã lưu từ phiên trước | Khi trang chi tiết ghi chú tải xong, với note được lưu từ một ngày trước đó trở về trước; tối đa 1 lần / note / ngày | Retention (return event) |
+| `citation_error_reported` | Learner báo trích dẫn sai trang / sai ý | Khi báo lỗi được ghi DB; tối đa 1 lần / (user, note) | CERR |
 
-#### 2. Tiêu chí nghiệm thu (Acceptance Criteria - Viết chuẩn kỹ thuật)
+#### Acceptance criteria
 
-##### Acceptance Criterion 1 (Đảm bảo tính hoàn tất & ngăn chặn bắn event non):
-> Với mỗi hành động lưu ghi chú của người học (`user_id`), hệ thống client **tuyệt đối không được bắn event** `note_verified_and_saved` tại thời điểm người dùng click chuột vào nút "Lưu ghi chú". Event này **chỉ được phép phát ra khi và chỉ khi** API endpoint `/api/v1/notes` phản hồi mã trạng thái `HTTP 200 OK`, đồng thời payload trả về xác nhận `note_id` đã được tạo trong cơ sở dữ liệu với các thuộc tính bắt buộc: `source_slide_id` không rỗng, `time_spent_verifying_ms >= 0`, và `content_length >= 20`. Nếu API trả về lỗi mạng (Network Error, 4xx, 5xx), không một event nào được phép ghi nhận vào hệ thống analytics.
+**AC1 — Chỉ bắn khi hành vi hoàn tất.**
+> Hệ thống **không** ghi `note_saved` khi learner vừa bấm nút "Lưu". Với mỗi `note_id`, `note_saved` chỉ được ghi sau khi `POST /api/v1/notes` đã commit DB và trả `201`, kèm `source_anchor_id` không rỗng và `content_length ≥ 20`. Request lỗi (mất mạng, 4xx, 5xx, timeout) không tạo event nào. `is_verified = true` chỉ khi `source_view_ms ≥ 3000` theo dữ liệu server, không theo giá trị client tự gửi lên.
 
-##### Acceptance Criterion 2 (Chống trùng lặp & Idempotency khi reload/retry):
-> Với mỗi cặp khóa duy nhất `(user_id, note_id)` trong cùng một phiên làm việc, hệ thống tracking phải đảm bảo tính Idempotent. Hành động người dùng tải lại trang (F5/Reload), kết nối mạng bị rớt rồi gửi lại (Network Retry), hoặc cơ chế tự động lưu nháp định kỳ (Auto-save) **không được tạo thêm bất kỳ event `note_verified_and_saved` nào mới cho cùng một phiên bản ghi chú**. Nếu người dùng thực hiện sửa đổi ghi chú đã lưu trước đó và bấm lưu lại, hệ thống phải gửi event với tên `note_updated` kèm thuộc tính `is_revision = true`, chứ không được đếm trùng vào số lượng ghi chú mới tạo của North Star Metric.
+**AC2 — Reload / retry / autosave không ghi trùng.**
+> Với mỗi cặp `user_id` và `note_id`, hệ thống chỉ ghi `note_saved` **một lần duy nhất**, khi ghi chú chuyển từ draft sang saved, bất kể phiên đăng nhập. Tải lại trang, retry do rớt mạng (cùng idempotency key) hay autosave bản nháp đều không tạo thêm `note_saved`. Sửa và lưu lại một note đã saved không ghi `note_saved` mới, nên không cộng thêm vào WVNS.
 
-> **Kết luận Gate 4B & Gate 5:** 6 event mapping chuẩn 1-1 với metric; 2 tiêu chí nghiệm thu chặt chẽ ngăn chặn toàn bộ lỗi tracking non và đếm trùng.
+> **Gate 4 (tracking):** 7 event, mỗi event map ít nhất 1 metric; mọi metric ở mục 03–04 đều có event để tính.
 
 ---
 
-### 07 — Tự soi lỗi & Quyết định Rationale (Revision Log)
+### Phụ lục — Tự soi lỗi (Gate 5) & revision
 
-| Tiêu chí tự soi lỗi kinh điển | Trạng thái | Giải trình lý do thiết kế (Design Rationale) |
-| :--- | :---: | :--- |
-| **1. Core action không phải thao tác giao diện hay output hệ thống?** | **ĐẠT** | Core action là `note_verified_and_saved` (User tự kiểm chứng và lưu). Không chọn "hỏi AI" (giao diện) hay "AI tóm tắt xong" (output hệ thống). |
-| **2. Activation không phải "onboarding" hay "đăng nhập"?** | **ĐẠT** | Activation yêu cầu phải lưu được 1 ghi chú có nguồn trong 48h sau khi upload tài liệu bài học. |
-| **3. Frequency không cao hơn nhu cầu thật?** | **ĐẠT** | Đo Cadence theo Weekly (2–3 buổi học/tuần), không ép Daily DAU vô lý. |
-| **4. Loop có reason to return ngoài notification?** | **ĐẠT** | Sinh viên quay lại vì áp lực làm bài tập tuần và kho ghi chú cũ nắm giữ lời giải/nguồn tham chiếu. |
-| **5. Retention không dùng chung một window cho mọi cadence?** | **ĐẠT** | Dùng Weekly Brackets (W1..W8) tương ứng với chu kỳ học kỳ, loại bỏ D7 máy móc. |
-| **6. Mọi event đều map về một metric?** | **ĐẠT** | 6 event map 100% vào Start, Activation, NSM, Leading, Counter, Return events. |
-| **7. Metric nào cũng có event để tính nó?** | **ĐẠT** | Toàn bộ công thức đều lấy dữ liệu từ các event đã định nghĩa ở mục 06. |
+| Câu tự soi | Kết quả | Ghi chú |
+| :--- | :-: | :--- |
+| 1. Core action không phải thao tác UI hay output hệ thống? | ✅ | Lưu ghi chú *đã đối chiếu nguồn*, không phải "hỏi AI" hay "AI tạo tóm tắt". |
+| 2. Activation không phải "xem hướng dẫn" hay "đăng nhập"? | ✅ | Verified note đầu tiên ≤ 48h sau upload. |
+| 3. Frequency không cao hơn nhu cầu thật? | ✅ | Weekly, theo lịch học; không dùng DAU. |
+| 4. Loop có reason to return ngoài notification? | ✅ | Hạn bài tập thật + kho ghi chú đã có sẵn. |
+| 5. Retention không dùng chung window cho mọi cadence? | ✅ | Tuần lịch W1–W8, segment in-semester; không D7/D30. |
+| 6. Mọi event đều map về một metric? | ✅ | Xem cột "Metric sử dụng" ở mục 06. |
+| 7. Metric nào cũng có event để tính? | ✅ | Activation, ASDw, SVDR, WVNS, SCTR, F24NR, DCR, UQSR, CERR, ICPVN và retention đều có event nguồn. |
 
-#### Rationale & Revision Note:
-- **Thay đổi quan trọng từ thảo luận ban đầu:** Ban đầu có ý tưởng đo Core Action là *"Hỏi AI về bài giảng"* và đo North Star Metric bằng *"Số câu hỏi giải đáp mỗi ngày (Daily Questions Asked)"*. 
-- **Lý do loại bỏ:** Đây là lỗi kinh điển biến sản phẩm thành một wrapper ChatGPT vô hồn, khuyến khích sinh viên spam câu hỏi mà không đo được họ có hiểu bài hay không. Đổi sang *"Kiểm chứng và lưu ghi chú có nguồn"* giúp sản phẩm bám chặt vào Core Value: xây dựng tri thức tin cậy, chống hallucination.
+**Revision log:**
+
+| # | Thay đổi | Lý do |
+| :-: | :--- | :--- |
+| R1 | Core action: "hỏi AI về bài giảng" → **lưu ghi chú đã đối chiếu nguồn**; NSM: "số câu hỏi mỗi ngày" → **WVNS** | "Hỏi AI" là thao tác UI, khuyến khích spam câu hỏi và không cho biết learner có hiểu bài không. "Mỗi ngày" trái với nhịp học theo tuần. |
+| R2 | Event `note_verified_and_saved` → **`note_saved` + thuộc tính `is_verified`** | Nếu event chỉ bắn khi đã verify thì không đếm được các lần lưu *không* verify, tức không tính được counter-metric UQSR. |
+| R3 | Thống nhất ngưỡng xác minh = **3 giây** ở completion rule, NSM, SVDR và AC1 | Bản trước lệch nhau (≥ 3s, ≥ 1s, ≥ 0ms), nên hai người đọc sẽ tính ra hai con số khác nhau. |
+| R4 | Thêm event `citation_error_reported`, thuộc tính `llm_cost_usd`; thay `note_referenced_for_review` bằng `note_reopened` có quy tắc chống trùng | Counter-metric CERR và ICPVN trước đó không có event để tính. |
+| R5 | Bỏ các số liệu không có nguồn (benchmark W4/W8, "gấp 3.2 lần", "cao hơn 80%", "tiết kiệm 70%", baseline 22% → 38%); hypothesis chuyển sang so sánh hai nhóm | Quy tắc lab cấm bịa benchmark. Baseline sẽ lấy từ cohort học kỳ đầu. |
+| R6 | AC2: chống trùng theo `(user_id, note_id)` bất kể phiên, thay vì "trong cùng phiên" | Reload thường tạo phiên mới. Chống trùng theo phiên vẫn để lọt bản ghi trùng. |
